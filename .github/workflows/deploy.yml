@@ -34,8 +34,9 @@ jobs:
         user: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
+          sshpass -p ssh -v -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} <<'ENDSSH'
           cd /var/www/andrewthecoder
           npm install
           npm run astro build
-
+          ENDSSH
 
