@@ -13,19 +13,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Copy files via SCP
-      run: |
-        sudo apt install sshpass
-        scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/andrewthecoder/
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.9.0
+      with: 
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Install dependencies, build, and restart app with PM2
-      uses: matheusvanzan/sshpass-action@v2
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        user: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          cd /var/www/andrewthecoder
-          npm install
-          npm run astro build
+    - name: Copy files via SCP and build
+      run: |
+        scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/andrewthecoder/
+        sshpass ssh -v -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} <<'ENDSSH'
+        cd /var/www/andrewthcoder
+        npm install
+        npm run astro build
+        ENDSSH
 
