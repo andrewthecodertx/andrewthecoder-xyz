@@ -23,14 +23,19 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-
-    - name: Install dependencies, build, and restart app with PM2
-      run: |
-        npm install
-        npm run astro build
-
     - name: Copy files via SCP
       run: |
         scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/andrewthecoder/
+
+    - name: Install dependencies, build, and restart app with PM2
+      uses: matheusvanzan/sshpass-action@v2
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        user: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SHH_PRIVATE_KEY }}
+      run: |
+        cd /var/www/andrewthecoder
+        npm install
+        npm run astro build
 
 
