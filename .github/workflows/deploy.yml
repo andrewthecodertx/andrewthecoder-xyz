@@ -32,7 +32,7 @@ jobs:
       with:
         host: ${{ secrets.SSH_HOST }}
         user: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SHH_PRIVATE_KEY }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           cd /var/www/andrewthecoder
           npm install
