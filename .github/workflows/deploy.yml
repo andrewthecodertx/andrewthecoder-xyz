@@ -33,9 +33,9 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         user: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SHH_PRIVATE_KEY }}
-      run: |
-        cd /var/www/andrewthecoder
-        npm install
-        npm run astro build
+        run: |
+          cd /var/www/andrewthecoder
+          npm install
+          npm run astro build
 
 
