@@ -30,15 +30,9 @@ jobs:
     - name: Send commands vis SSHPASS
       run: |  
         sshpass ssh -v -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} <<'ENDSSH'
-    - name: Setup node version manager and use version 20
-      run: |    
         export NVM_DIR="$HOME/.nvm"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        nvm install 20
         nvm use 20
-    - name: Switch to application directory
-      run: |
-        sshpass ssh -v -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} <<'ENDSSH'
         cd /var/www/andrewthecoder
         npm install
         npm run astro build
