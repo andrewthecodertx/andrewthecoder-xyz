@@ -22,7 +22,7 @@ jobs:
       run: |
         scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/andrewthecoder/
         sshpass ssh -v -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} <<'ENDSSH'
-        cd /var/www/andrewthcoder
+        cd /var/www/andrewthecoder
         npm install
         npm run astro build
         ENDSSH
