@@ -1,32 +1,8 @@
 ---
-import axios from 'axios'
-
-let data = null;
-
-try {
-  const response = await axios.get('https://dadjokes.developersandbox.xyz/api/v1/random')
-  data = response.data
-  } catch (error) {
-  console.error("can't fetch dad joke: ", error)
-}
-
+import MainLayout from "../layouts/main.astro"
+import DadJoke from "../components/dadjoke.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>ANDRE THE CODER</title>
-	</head>
-	<body>
-		<h1>Andrew the Coder</h1>
-		{data ? (
-		  <h2>Dad Joke</h2>
-		  <p>{data.joke_text}</p>
-	  	) : (
-		  <p>ERROR FETCHING DAD JOKE</p>
-		)}
-	</body>
-</html>
+<MainLayout>
+  <DadJoke />
+</MainLayout>
