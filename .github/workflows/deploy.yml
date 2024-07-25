@@ -29,6 +29,7 @@ jobs:
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
         nvm use 20
         cd /var/www/andrewthecoder
+        rm -rf node_modules
         npm install
         npm run astro build
         ENDSSH
