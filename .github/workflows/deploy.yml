@@ -45,7 +45,6 @@ jobs:
         cd /var/www/andrewthecoder
         npm install
         npm run build
-        npm install pm2
         pm2 stop andrewthecoder.xyz || true
         pm2 start ./dist/server/entry.mjs --name "andrewthecoder.xyz"
         pm2 save
