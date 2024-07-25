@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Setup Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
 
@@ -23,18 +23,15 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Copy files via SCP
-      run: |
-        scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/andrewthecoder/
 
     - name: Install dependencies, build, and restart app with PM2
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << 'EOF'
-        nvm use 20
-        cd /var/www/andrewthecoder
         npm install
         npm run build
-        pm2 stop andrewthecoder.xyz || true
-        pm2 start ./dist/server/entry.mjs --name "andrewthecoder.xyz"
-        pm2 save
         EOF
+
+    - name: Copy files via SCP
+      run: |
+        scp -o StrictHostKeyChecking=no -r ./dist ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/andrewthecoder/
+
+
