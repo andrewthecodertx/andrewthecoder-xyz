@@ -38,9 +38,8 @@ jobs:
         nvm use 20
     - name: Switch to application directory
       run: |
+        sshpass ssh -v -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} <<'ENDSSH'
         cd /var/www/andrewthecoder
-    - name: Run npm install
-      run: |
         npm install
         npm run astro build
         ENDSSH
