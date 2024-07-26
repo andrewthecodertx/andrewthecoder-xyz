@@ -32,7 +32,9 @@ jobs:
         rm -rf node_modules
         npm install
         npm run astro build
-        /home/${{ secrets.SSH_USERNAME }}/.nvm/versions/node/v21.7.3/lib/node_modules/pm2/bin/pm2 stop entry
-        /home/${{ secrets.SSH_USERNAME }}/.nvm/versions/node/v21.7.3/lib/node_modules/pm2/bin/pm2 start ./dist/server/entry.mjs
+        export PM2_DIR="$HOME/.nvm/versions/node/v21.7.3/lib/node_modules/pm2/bin"
+        [ -s "$PM2_DIR/pm2" ] && \. "$PM2_DIR/pm2"
+        pm2 stop entry
+        pm2 start ./dist/server/entry.mjs
         ENDSSH
 
