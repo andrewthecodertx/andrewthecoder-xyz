@@ -32,7 +32,7 @@ jobs:
         rm -rf node_modules
         npm install
         npm run astro build
-        cd /home/${{ secrets.USERNAME }}/.nvm/versions/node/v21.7.3/bin
+        cd /home/${{ secrets.SSH_USERNAME }}/.nvm/versions/node/v21.7.3/bin
         pm2 stop entry
         pm2 start /var/www/andrewthecoder/dist/server/entry.mjs
         ENDSSH
