@@ -32,8 +32,8 @@ jobs:
         rm -rf node_modules
         npm install
         npm run astro build
-        npm install pm2
+        cd /home/${{ secrets.USERNAME }}/.nvm/versions/node/v21.7.3/bin
         pm2 stop entry
-        pm2 start ./dist/server/entry.mjs
+        pm2 start /var/www/andrewthecoder/dist/server/entry.mjs
         ENDSSH
 
