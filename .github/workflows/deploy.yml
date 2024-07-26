@@ -26,15 +26,14 @@ jobs:
       run: |  
         sshpass ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} <<'ENDSSH'
         export NVM_DIR="$HOME/.nvm"
+        export PM2_DIR="$NVM_DIR/versions/node/v21.7.3/lib/node_modules/pm2/bin"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
         nvm use 20
         cd /var/www/andrewthecoder
         rm -rf node_modules
         npm install
         npm run astro build
-        export PM2_DIR="$NVM_DIR/versions/node/v21.7.3/lib/node_modules/pm2/bin"
-        [ -s "$PM2_DIR/pm2" ] && \. "$PM2_DIR/pm2"
-        pm2 stop entry
-        pm2 start ./dist/server/entry.mjs
+        $PM2_DIR/pm2 stop entry
+        $PM2_DIR/pm2 start ./dist/server/entry.mjs
         ENDSSH
 
