@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../../layouts/main.astro"
 import { getEntry } from "astro:content"
-import { FormatDate } from "../../Utils.ts"
+import { FormatDate } from "../../Utils"
 
 const { slug } = Astro.params
 const entry = await getEntry('blog', slug)
@@ -9,5 +9,6 @@ const { Content } = await entry.render()
 ---
 
 <MainLayout>
+  <p>{FormatDate(entry.data.published)}</p>
   <Content />
 </MainLayout>

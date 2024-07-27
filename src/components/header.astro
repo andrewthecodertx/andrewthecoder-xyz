@@ -1,6 +1,6 @@
 ---
 import ThemeIcon from "./themeicon.astro"
-import { MenuItems } from "../Utils.ts"
+import NavBar from "./navbar.astro"
 ---
 
 <header class="bg-gray-100 dark:bg-slate-800">
@@ -17,32 +17,7 @@ import { MenuItems } from "../Utils.ts"
             </a>
           </h1>
         </div>
-
-        <div class="flex items-center justify-end border-l lg:border-l-0">
-          <input type="checkbox" name="hamburger" id="hamburger" class="peer" hidden>
-          <label for="hamburger" class="peer-checked:hamburger block relative z-20 p-6 -mr-6 cursor-pointer lg:hidden">
-            <div aria-hidden="true" class="m-auto h-0.5 w-6 rounded bg-slate-800 dark:bg-gray-200 transition duration-300"></div>
-            <div aria-hidden="true" class="m-auto mt-2 h-0.5 w-6 rounded bg-slate-800 dark:bg-gray-200 transition duration-300"></div>
-          </label>
-          <div class="peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] bg-gray-400 dark:bg-slate-800 border-r shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0">
-            <div class="flex flex-col h-full justify-between lg:items-center lg:flex-row">
-              <ul class="px-6 pt-32 text-slate-800 dark:text-gray-200 space-y-8 md:px-12 lg:space-y-0 lg:flex lg:space-x-12 lg:pt-0">
-                {
-                  MenuItems.map((item, index) => (
-                  <li>
-                    <a 
-                      href={item.path} 
-                      class="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 before:bg-cyan-100 before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100"
-                    >
-                      <span class="relative group-hover:text-cyan-800">{item.title}</span>
-                    </a>
-                  </li>               
-                  ))
-                }
-              </ul>
-            </div>
-          </div>
-        </div>
+        <NavBar />
       </div>
     </div>
   </div>
