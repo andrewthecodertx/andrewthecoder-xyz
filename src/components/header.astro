@@ -1,24 +1,6 @@
 ---
 import ThemeIcon from "./themeicon.astro"
-
-const menuitems = [
-{
- title: "HOME",
- path: "/"
-},
-{
- title: "ABOUT",
- path: "/about"
-},
-{
- title: "BLOG",
- path: "/blog"
-},
-{
- title: "CONTACT",
- path: "/contact"
-},
-]
+import { MenuItems } from "../Utils.ts"
 ---
 
 <header class="bg-gray-100 dark:bg-slate-800">
@@ -46,11 +28,12 @@ const menuitems = [
             <div class="flex flex-col h-full justify-between lg:items-center lg:flex-row">
               <ul class="px-6 pt-32 text-slate-800 dark:text-gray-200 space-y-8 md:px-12 lg:space-y-0 lg:flex lg:space-x-12 lg:pt-0">
                 {
-                  menuitems.map((item, index) => (
+                  MenuItems.map((item, index) => (
                   <li>
                     <a 
                       href={item.path} 
-                      class="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 before:bg-cyan-100 before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100">
+                      class="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 before:bg-cyan-100 before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100"
+                    >
                       <span class="relative group-hover:text-cyan-800">{item.title}</span>
                     </a>
                   </li>               

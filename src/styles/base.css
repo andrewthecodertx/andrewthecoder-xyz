@@ -6,4 +6,8 @@
   h1 {
     @apply text-3xl;
   }
+
+  .peer-checked {
+    @apply rotate-45 translate-y-1.5;
+  }
 }
