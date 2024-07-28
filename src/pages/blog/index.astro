@@ -2,18 +2,18 @@
 import MainLayout from "../../layouts/main.astro"
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
+import BlogCard from "../../components/blogcard.astro"
 
-const blogposts: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.published.valudOf() - a.data.pubished.valueOf())
-
+const blogposts: CollectionEntry<'blog'>[] = (await getCollection('blog'))
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => 
+    b.data.published.valudOf() - a.data.pubished.valueOf())
 ---
 
 <MainLayout>
   <h2>THE BLOG</h2>
   <ul>
-    {
-    blogposts.map((entry) => (
-    <a href={`/blog/${entry.data.slug}`}><li>{entry.data.title}</li></a>  
-    ))
-    }
+    {blogposts.map(entry => 
+      <BlogCard entry={entry} />
+    )}
   </ul>
 </MainLayout>
