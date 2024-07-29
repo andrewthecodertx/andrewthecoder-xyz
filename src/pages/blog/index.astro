@@ -2,7 +2,8 @@
 import MainLayout from "../../layouts/main.astro"
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
-import BlogCard from "../../components/blogcard.astro"
+import BlogCardBig from "../../components/blogcardbig.astro"
+import BlogCardSmall from "../../components/blogcardsmall.astro"
 
 const blogposts: CollectionEntry<'blog'>[] = (await getCollection('blog'))
   .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => 
@@ -11,9 +12,14 @@ const blogposts: CollectionEntry<'blog'>[] = (await getCollection('blog'))
 
 <MainLayout>
   <h2>THE BLOG</h2>
-  <ul>
-    {blogposts.map(entry => 
-      <BlogCard entry={entry} />
-    )}
-  </ul>
+  <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">  
+    <div class="grid grid-cols-1 sm:grid-cols-12 gap-10">
+      {blogposts.map((entry, index) => (
+        index == 0 && <BlogCardBig entry={entry} />
+      <div class="sm:col-span-6 lg:col-span-4">
+        <BlogCardSmall entry={entry} />
+      </div>
+      ))}
+    </div>
+  </div>
 </MainLayout>

@@ -10,6 +10,7 @@ tags:
   - computer science
 description:
   A quick and shallow dive into what algorithms are and how they work.
+image: algorithms.jpg
 ---
 
 ### Introduction
