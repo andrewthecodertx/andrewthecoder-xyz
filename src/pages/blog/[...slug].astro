@@ -1,7 +1,6 @@
 ---
 import MainLayout from "../../layouts/main.astro"
 import { getEntry } from "astro:content"
-import { FormatDate } from "../../Utils"
 
 const { slug } = Astro.params
 const entry = await getEntry('blog', slug)
