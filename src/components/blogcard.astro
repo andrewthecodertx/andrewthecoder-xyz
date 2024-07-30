@@ -16,7 +16,9 @@ interface Props {
     alt={entry.data.title}
   />
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">{entry.data.title}</div>
+    <a href={`/blog/${entry.data.slug}`} class="font-bold text-xl mb-2"
+      >{entry.data.title}</a
+    >
     <p class="text-gray-700 dark:text-gray-400 text-base">
       {entry.data.description}
     </p>
