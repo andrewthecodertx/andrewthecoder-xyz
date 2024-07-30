@@ -4,7 +4,7 @@ published: 2024-06-04
 title: "A Beginner's Guide to Algorithms"
 slug: a-beginners-guide-to-algorithms
 featured: true
-category: tech
+category: Tech
 tags:
   - algorithms
   - computer science
