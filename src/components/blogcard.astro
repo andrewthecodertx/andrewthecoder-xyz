@@ -1,59 +1,69 @@
 ---
-import type { CollectionEntry } from 'astro:content'
+import type { CollectionEntry } from "astro:content";
 
-const { entry, index } = Astro.props
+const { entry, index } = Astro.props;
 
 interface Props {
-  entry: CollectionEntry<'blog'>
-  index: number
+  entry: CollectionEntry<"blog">;
+  index: number;
 }
 ---
-<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">  
+
+<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
   <div class="grid grid-cols-1 sm:grid-cols-12 gap-10">
-    {index === 0 ? (
-      <div class="sm:col-span-6 lg:col-span-5">
-        <a href={`/blog/${entry.data.slug}`}>
-          <div 
-            class="h-56 bg-cover text-center overflow-hidden" 
-            style={`background-image: url('/images/${entry.data.image}')`}
-            title={entry.data.title}>
-          </div>
-        </a>
-        <div class="mt-3 bg-gray-100 dark:bg-slate-800 rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
-          <div class="">
-            <a href={`/blog/categories/${entry.data.category}`}
-              class="text-xs text-indigo-600 uppercase font-medium mb-3 flex items-center hover:text-gray-900 transition duration-500 ease-in-out">
-                {entry.data.category}
-            </a>
-            <a href={`/blog/${entry.data.slug}`}
-              class="text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out">
-              {entry.data.title}
-            </a>
-            <p class="text-gray-700 dark:text-gray-400 text-xs mt-2">
-              {entry.data.description}
-            </p>
-          </div>
-        </div>
-      </div>
-    ) : (
-      <div class="sm:col-span-6 lg:col-span-4">
-        <div class="flex items-start mb-3 pb-3">
-          <a href={`/blog/${entry.data.slug}`} class="inline-block mr-3">
-            <div class="w-20 h-20 bg-cover bg-center"
-              style={`background-image: url('/images/${entry.data.image}')`}>
-            </div>
+    {
+      index === 0 ? (
+        <div class="sm:col-span-6 lg:col-span-5">
+          <a href={`/blog/${entry.data.slug}`}>
+            <div
+              class="h-56 bg-cover text-center overflow-hidden"
+              style={`background-image: url('/images/${entry.data.image}')`}
+              title={entry.data.title}
+            />
           </a>
-          <div class="text-sm">
-            <p class="text-gray-600 dark:text-gray-200 text-xs p-0">
-              {entry.data.published}
-            </p>
-            <a href={`/blog/${entry.data.slug}`}
-              class="text-gray-900 dark:text-gray-400 font-medium hover:text-indigo-600 leading-none">
-              {entry.data.title}
-            </a>
+          <div class="mt-3 bg-gray-100 dark:bg-slate-800 rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+            <div class="">
+              <a
+                href={`/blog/categories/${entry.data.category}`}
+                class="text-xs text-indigo-600 uppercase font-medium mb-3 flex items-center hover:text-gray-900 transition duration-500 ease-in-out"
+              >
+                {entry.data.category}
+              </a>
+              <a
+                href={`/blog/${entry.data.slug}`}
+                class="text-gray-900 dark:text-gray-200 font-bold text-lg mb-2 hover:text-indigo-600 transition duration-500 ease-in-out"
+              >
+                {entry.data.title}
+              </a>
+              <p class="text-gray-700 dark:text-gray-400 text-xs mt-2">
+                {entry.data.description}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    )}
+      ) : (
+        <div class="sm:col-span-6 lg:col-span-4">
+          <div class="flex items-start mb-3 pb-3">
+            <a href={`/blog/${entry.data.slug}`} class="inline-block mr-3">
+              <div
+                class="w-20 h-20 bg-cover bg-center"
+                style={`background-image: url('/images/${entry.data.image}')`}
+              />
+            </a>
+            <div class="text-sm">
+              <p class="text-gray-600 dark:text-gray-200 text-xs p-0">
+                {entry.data.published}
+              </p>
+              <a
+                href={`/blog/${entry.data.slug}`}
+                class="text-gray-900 dark:text-gray-400 font-medium hover:text-indigo-600 leading-none"
+              >
+                {entry.data.title}
+              </a>
+            </div>
+          </div>
+        </div>
+      )
+    }
   </div>
 </div>
