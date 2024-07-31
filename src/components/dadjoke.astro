@@ -1,20 +1,19 @@
 ---
-import axios from 'axios'
+import axios from "axios";
 
 let joke = null;
 
 try {
-  const response = await axios.get('https://dadjokes.developersandbox.xyz/api/v1/random')
-  joke = response.data
-  } catch (error) {
-  console.error("can't fetch dad joke: ", error)
+  const response = await axios.get(
+    "https://dadjokes.developersandbox.xyz/api/v1/random",
+  );
+  joke = response.data;
+} catch (error) {
+  return null;
 }
 ---
+
 <section>
-  {joke ? (
-    <h2>Dad Joke</h2>
-    <p>{joke.joke_text}</p>
-    ) : (
-    <p>ERROR FETCHING DAD JOKE</p>
-  )}
+  <h3>Dad Joke</h3>
+  {joke ? <p>{joke.joke_text}</p> : <p>ERROR FETCHING DAD JOKE</p>}
 </section>

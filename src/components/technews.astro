@@ -13,8 +13,6 @@ const fetch_articles = async (): Promise<Article[] | null> => {
 
   let cached_articles = cache.get(key);
   if (cached_articles) {
-    console.log("serving tech news from cache");
-
     return cached_articles;
   }
 
@@ -24,14 +22,10 @@ const fetch_articles = async (): Promise<Article[] | null> => {
     );
 
     let articles = response.data.articles;
-
     cache.set(key, articles);
-    console.log("fetched articles and stored them");
 
     return articles;
   } catch (error) {
-    console.error("can't fetch tech news: ", error);
-
     return null;
   }
 };
@@ -40,6 +34,7 @@ articles = await fetch_articles();
 ---
 
 <section>
+  <h3>Tech News</h3>
   {
     articles ? (
       articles.map((article: Article) => <p>{article.title}</p>)
