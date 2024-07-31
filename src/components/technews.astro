@@ -1,18 +1,42 @@
 ---
 import axios from "axios";
+import NodeCache from "node-cache";
 import type { Article } from "../Types.ts";
 
-let articles = null;
+const cache = new NodeCache({ stdTTL: 43200 }); // 12 hours
 const apikey = import.meta.env.NEWSAPI_KEY;
 
-try {
-  const response = await axios.get(
-    `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apikey}`,
-  );
-  articles = response.data.articles;
-} catch (error) {
-  console.error("can't fetch tech news: ", error);
-}
+let articles: Article[] | null = null;
+
+const fetch_articles = async (): Promise<Article[] | null> => {
+  const key = "tech-news";
+
+  let cached_articles = cache.get(key);
+  if (cached_articles) {
+    console.log("serving tech news from cache");
+
+    return cached_articles;
+  }
+
+  try {
+    const response = await axios.get(
+      `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apikey}`,
+    );
+
+    let articles = response.data.articles;
+
+    cache.set(key, articles);
+    console.log("fetched articles and stored them");
+
+    return articles;
+  } catch (error) {
+    console.error("can't fetch tech news: ", error);
+
+    return null;
+  }
+};
+
+articles = await fetch_articles();
 ---
 
 <section>
@@ -24,4 +48,3 @@ try {
     )
   }
 </section>
----
