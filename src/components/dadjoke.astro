@@ -1,19 +1,19 @@
 ---
 import axios from 'axios'
 
-let data = null;
+let joke = null;
 
 try {
   const response = await axios.get('https://dadjokes.developersandbox.xyz/api/v1/random')
-  data = response.data
+  joke = response.data
   } catch (error) {
   console.error("can't fetch dad joke: ", error)
 }
 ---
 <section>
-  {data ? (
+  {joke ? (
     <h2>Dad Joke</h2>
-    <p>{data.joke_text}</p>
+    <p>{joke.joke_text}</p>
     ) : (
     <p>ERROR FETCHING DAD JOKE</p>
   )}

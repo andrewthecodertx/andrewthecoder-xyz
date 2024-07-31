@@ -1,0 +1,27 @@
+---
+import axios from "axios";
+import type { Article } from "../Types.ts";
+
+let articles = null;
+const apikey = import.meta.env.NEWSAPI_KEY;
+
+try {
+  const response = await axios.get(
+    `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apikey}`,
+  );
+  articles = response.data.articles;
+} catch (error) {
+  console.error("can't fetch tech news: ", error);
+}
+---
+
+<section>
+  {
+    articles ? (
+      articles.map((article: Article) => <p>{article.title}</p>)
+    ) : (
+      <p>CAN'T CONNECT TO NEWS API!</p>
+    )
+  }
+</section>
+---
