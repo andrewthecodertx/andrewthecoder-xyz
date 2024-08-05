@@ -10,6 +10,5 @@ export default defineConfig({
     mode: "standalone",
   }),
   integrations: [tailwind()],
-  server: { port: 3000 },
+  server: { port: 4000 },
 });
-
