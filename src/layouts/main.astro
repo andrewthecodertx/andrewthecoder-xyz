@@ -1,22 +1,21 @@
 ---
-import Header from "../components/header.astro"
-import "../styles/base.css"
+import Header from "../components/header.astro";
+import "../styles/base.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>ANDREW the CODER</title>
-	</head>
-	<body class="bg-gray-100 dark:bg-slate-800">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>ANDREW the CODER</title>
+  </head>
+  <body class="lg:w-4/5 lg:mx-auto text-xs bg-gray-100 dark:bg-slate-800">
     <Header />
     <main class="dark:text-white">
       <slot />
     </main>
-    <footer>
-    </footer>
+    <footer></footer>
   </body>
 </html>

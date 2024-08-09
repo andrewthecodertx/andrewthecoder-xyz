@@ -2,7 +2,7 @@
 import { MenuItems } from "../Utils";
 ---
 
-<div class="flex items-center justify-end lg:py-4 border-l lg:border-l-0">
+<div class="flex items-center justify-end lg:py-4">
   <input type="checkbox" name="hamburger" id="hamburger" class="peer" hidden />
   <label
     for="hamburger"
@@ -22,11 +22,11 @@ import { MenuItems } from "../Utils";
   <div
     class="peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] bg-gray-100 dark:bg-slate-800 border-r shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0"
   >
-    <div
-      class="flex flex-col h-full justify-between lg:items-center lg:flex-row"
+    <nav
+      class="flex flex-col h-full justify-between font-sans lg:items-center lg:flex-row"
     >
       <ul
-        class="px-4 pt-32 text-slate-800 dark:text-gray-200 space-y-8 md:px-12 lg:space-y-0 lg:flex lg:space-x-12 lg:pt-0"
+        class="px-4 pt-32 text-slate-800 dark:text-gray-200 space-y-8 lg:space-y-0 lg:flex lg:space-x-12 lg:pt-2"
       >
         {
           MenuItems.map((item) => (
@@ -40,6 +40,6 @@ import { MenuItems } from "../Utils";
           ))
         }
       </ul>
-    </div>
+    </nav>
   </div>
 </div>

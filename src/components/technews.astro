@@ -11,7 +11,7 @@ let articles: Article[] | null = null;
 const fetch_articles = async (): Promise<Article[] | null> => {
   const key = "tech-news";
 
-  let cached_articles = cache.get(key);
+  let cached_articles: Article[] | undefined = cache.get(key);
   if (cached_articles) {
     return cached_articles;
   }
@@ -33,13 +33,15 @@ const fetch_articles = async (): Promise<Article[] | null> => {
 articles = await fetch_articles();
 ---
 
-<section>
+<div>
   <h3>Tech News</h3>
-  {
-    articles ? (
-      articles.map((article: Article) => <p>{article.title}</p>)
-    ) : (
-      <p>CAN'T CONNECT TO NEWS API!</p>
-    )
-  }
-</section>
+  <ul>
+    {
+      articles ? (
+        articles.map((article: Article) => <li>{article.title}</li>)
+      ) : (
+        <p>CAN'T CONNECT TO NEWS API!</p>
+      )
+    }
+  </ul>
+</div>
