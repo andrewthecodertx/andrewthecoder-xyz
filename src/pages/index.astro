@@ -2,32 +2,71 @@
 import MainLayout from "../layouts/main.astro";
 import DadJoke from "../components/dadjoke.astro";
 import TechNews from "../components/technews.astro";
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.published.valueOf() - a.data.published.valueOf(),
+);
 ---
 
 <MainLayout>
-  <section class="lg:flex">
-    <div class="lg:border-r-2 lg:border-t-2 border-gray-300 pr-5">
-      <div class="font-bold py-5">
-        Lorem ipsum odor amet, consectetuer adipiscing elit. Pulvinar dictum
-        condimentum ultrices facilisi montes conubia sapien odio donec. Elit
-        consequat vitae mauris commodo arcu tortor vehicula. Mi litora lobortis
-        sapien eleifend leo tortor. Asodales iaculis luctus sit ornare
-        phasellus. Nisi cursus a himenaeos parturient fames.
+  <div class="lg:flex lg:flex-col">
+    <div class="lg:flex">
+      <div
+        class="relative lg:w-2/3 lg:border-r-2 lg:border-t-2 border-gray-300 mb-5 pr-5"
+      >
+        <div class="font-bold py-5">
+          <h2 class="pb-5 uppercase">welcome to my spot</h2>
+          Lorem ipsum odor amet, consectetuer adipiscing elit. Pulvinar dictum condimentum
+          ultrices facilisi montes conubia sapien odio donec. Elit consequat vitae
+          mauris commodo arcu tortor vehicula. Mi litora lobortis sapien eleifend
+          leo tortor. Asodales iaculis luctus sit ornare phasellus. Nisi cursus a
+          himenaeos parturient fames.
+        </div>
+        <div>
+          Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra egestas
+          non nam elit vivamus eros placerat facilisi. Amet aliquet magna; risus
+          eget ante vulputate. Vestibulum habitasse metus justo cubilia, sem
+          nec. Est aptent habitasse id cubilia curae platea vulputate
+          adipiscing. Blandit nisi ultricies aenean ad, nunc velit. Potenti sed
+          maximus vulputate fames, hendrerit cubilia orci. Vestibulum morbi quam
+          netus vehicula mollis. Dis gravida porta maecenas pulvinar suscipit.
+        </div>
+        <DadJoke class="py-5" />
       </div>
-      <div>
-        Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra egestas
-        non nam elit vivamus eros placerat facilisi. Amet aliquet magna; risus
-        eget ante vulputate. Vestibulum habitasse metus justo cubilia, sem nec.
-        Est aptent habitasse id cubilia curae platea vulputate adipiscing.
-        Blandit nisi ultricies aenean ad, nunc velit. Potenti sed maximus
-        vulputate fames, hendrerit cubilia orci. Vestibulum morbi quam netus
-        vehicula mollis. Dis gravida porta maecenas pulvinar suscipit.
+      <div
+        class="relative lg:w-1/3 leading-relaxed pt-5 lg:ml-5 lg:border-t-2 border-gray-300"
+      >
+        <h3 class="underline pb-2"><a href="/tech-news">Tech News</a></h3>
+        <TechNews articles={5} />
       </div>
     </div>
-    <div class="leading-relaxed lg:ml-5 lg:border-t-2 border-gray-300">
-      <TechNews />
+    <div class="clear-both bg-amber-300 font-bold text-black leading-snug">
+      <p class="p-4">here some text in a gold box.</p>
     </div>
-  </section>
-
-  <DadJoke />
+    <div class="lg:flex w-full">
+      <div class="mr-5 mt-5 w-2/3">
+        <h3 class="underline pb-2">Latest Blogs</h3>
+        <ul>
+          {
+            blogposts.map((entry, index) => (
+              <li class={index % 2 != 0 ? "bg-gray-300" : ""}>
+                {entry.data.title}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div
+        class="bg-black mt-3 text-white float=left hover:bg-gray-200 hover:text-black w-1/3"
+      >
+        <span class="block p-4">
+          <p>this is some text that I have put here to use as a place holder</p>
+        </span>
+      </div>
+    </div>
+  </div>
 </MainLayout>

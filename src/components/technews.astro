@@ -3,6 +3,8 @@ import axios from "axios";
 import NodeCache from "node-cache";
 import type { Article } from "../Types.ts";
 
+const { class: className, articles: articlesCount = 3, ...rest } = Astro.props;
+
 const cache = new NodeCache({ stdTTL: 43200 }); // 12 hours
 const apikey = import.meta.env.NEWSAPI_KEY;
 
@@ -31,17 +33,22 @@ const fetch_articles = async (): Promise<Article[] | null> => {
 };
 
 articles = await fetch_articles();
+
+const articlesToDisplay = articles?.slice(0, articlesCount) ?? [];
 ---
 
-<div>
-  <h3>Tech News</h3>
+<section class={className} {...rest}>
   <ul>
     {
-      articles ? (
-        articles.map((article: Article) => <li>{article.title}</li>)
+      articlesToDisplay.length > 0 ? (
+        articlesToDisplay.map((article: Article) => (
+          <li class="pb-4">
+            <a class="hover:text-red-600 dark:hover:text-red-300" href={article.url} target="_blank">{article.title}</a>
+          </li>
+        ))
       ) : (
-        <p>CAN'T CONNECT TO NEWS API!</p>
+        <li>ERROR FETCHING TECH NEWS!</li>
       )
     }
   </ul>
-</div>
+</section>

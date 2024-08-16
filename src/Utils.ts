@@ -1,22 +1,3 @@
-export const MenuItems = [
-  {
-    title: "HOME",
-    path: "/",
-  },
-  {
-    title: "ABOUT",
-    path: "/about",
-  },
-  {
-    title: "BLOG",
-    path: "/blog",
-  },
-  {
-    title: "CONTACT",
-    path: "/contact",
-  },
-];
-
 export function FormatDate(date: string | Date): string {
   const d = new Date(date);
   const monthNames = [

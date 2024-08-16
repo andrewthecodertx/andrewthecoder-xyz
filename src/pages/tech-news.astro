@@ -1,0 +1,11 @@
+---
+import MainLayout from "../layouts/main.astro";
+import TechNews from "../components/technews.astro";
+---
+
+<MainLayout>
+  <section>
+    <h2 class="underline pb-2"><a href="/tech-news">Tech News</a></h2>
+    <TechNews articles={10} />
+  </section>
+</MainLayout>
