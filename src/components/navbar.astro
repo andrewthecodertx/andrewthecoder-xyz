@@ -23,21 +23,21 @@ const MenuItems = [
   <input type="checkbox" name="hamburger" id="hamburger" class="peer" hidden />
   <label
     for="hamburger"
-    class="peer-checked:hamburger block relative z-20 p-6 -mr-6 cursor-pointer lg:hidden"
+    class="peer-checked:hamburger block relative p-6 cursor-pointer lg:hidden z-[2]"
   >
     <div
       aria-hidden="true"
-      class="m-auto h-0.5 w-6 rounded bg-slate-800 dark:bg-gray-200 transition duration-300"
+      class="m-auto h-0.5 w-6 bg-slate-800 dark:bg-gray-200 transition duration-300"
     >
     </div>
     <div
       aria-hidden="true"
-      class="m-auto mt-2 h-0.5 w-6 rounded bg-slate-800 dark:bg-gray-200 transition duration-300"
+      class="m-auto mt-2 h-0.5 w-6 bg-slate-800 dark:bg-gray-200 transition duration-300"
     >
     </div>
   </label>
   <div
-    class="peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] bg-gray-100 dark:bg-slate-800 border-r shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0"
+    class="peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-10rem)] translate-x-[-100%] bg-gray-100 dark:bg-slate-800 lg:bg-transparent dark:lg:bg-transparent border-r shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 z-[1]"
   >
     <nav
       class="flex flex-col h-full justify-between font-sans lg:items-center lg:flex-row"

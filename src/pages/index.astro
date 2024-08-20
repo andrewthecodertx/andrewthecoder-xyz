@@ -48,7 +48,7 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
       <p class="p-4">here some text in a gold box.</p>
     </div>
     <div class="lg:flex w-full">
-      <div class="mr-5 mt-5 w-2/3">
+      <div class="mr-5 mt-5 lg:w-2/3">
         <h3 class="underline pb-2">Latest Blogs</h3>
         <ul>
           {
@@ -61,7 +61,7 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
         </ul>
       </div>
       <div
-        class="bg-black mt-3 text-white float=left hover:bg-gray-200 hover:text-black w-1/3"
+        class="bg-black mt-3 text-white float=left hover:bg-gray-200 hover:text-black lg:w-1/3"
       >
         <span class="block p-4">
           <p>this is some text that I have put here to use as a place holder</p>
