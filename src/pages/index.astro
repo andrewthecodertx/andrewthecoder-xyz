@@ -20,22 +20,21 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
       >
         <div class="font-bold py-5">
           <h2 class="pb-5 uppercase">welcome to my spot</h2>
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Pulvinar dictum condimentum
-          ultrices facilisi montes conubia sapien odio donec. Elit consequat vitae
-          mauris commodo arcu tortor vehicula. Mi litora lobortis sapien eleifend
-          leo tortor. Asodales iaculis luctus sit ornare phasellus. Nisi cursus a
-          himenaeos parturient fames.
+          Welcome to my corner of the web! I'm Andrew, a software engineer and web/app
+          developer with 25 years of experience working across a diverse range of
+          languages and platforms. Whether it's building dynamic websites, crafting
+          intuitive mobile apps, or diving deep into systems programming, I enjoy
+          turning ideas into reality through code.
         </div>
         <div>
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra egestas
-          non nam elit vivamus eros placerat facilisi. Amet aliquet magna; risus
-          eget ante vulputate. Vestibulum habitasse metus justo cubilia, sem
-          nec. Est aptent habitasse id cubilia curae platea vulputate
-          adipiscing. Blandit nisi ultricies aenean ad, nunc velit. Potenti sed
-          maximus vulputate fames, hendrerit cubilia orci. Vestibulum morbi quam
-          netus vehicula mollis. Dis gravida porta maecenas pulvinar suscipit.
+          But there's more to me than just tech. I'm also a musician, where I
+          channel my creativity into melodies and harmonies. My background in
+          theology has provided me with a unique perspective, blending
+          analytical thinking with a deep appreciation for the human experience.
+          This mix of technology, music, and theology shapes how I approach both
+          life and work, always striving for harmony and purpose in everything I
+          do.
         </div>
-        <DadJoke class="py-5" />
       </div>
       <div
         class="relative lg:w-1/3 leading-relaxed pt-5 lg:ml-5 lg:border-t-2 border-gray-300"
@@ -44,8 +43,14 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
         <TechNews articles={5} />
       </div>
     </div>
-    <div class="clear-both bg-amber-300 font-bold text-black leading-snug">
-      <p class="p-4">here some text in a gold box.</p>
+    <div class="clear-both bg-amber-300 p-4 font-bold text-black leading-snug">
+      <DadJoke />
+      <p>
+        Contribute : <a
+          href="https://dadjokes.developersandbox.xyz"
+          target="_blank">dadjokes.developersandbox.xyz</a
+        >
+      </p>
     </div>
     <div class="lg:flex w-full">
       <div class="mr-5 mt-5 lg:w-2/3">
