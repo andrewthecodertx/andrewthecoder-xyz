@@ -6,10 +6,12 @@ import TechNews from "../components/technews.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
-const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
+const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
+.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.published.valueOf() - a.data.published.valueOf(),
-);
+)
+.filter((post: CollectionEntry<"blog">) => post.data.featured === true);
 ---
 
 <MainLayout>
@@ -54,12 +56,14 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
     </div>
     <div class="lg:flex w-full">
       <div class="mr-5 mt-5 lg:w-2/3">
-        <h3 class="underline pb-2">Latest Blogs</h3>
+        <h3 class="underline pb-2">Featured Blogs</h3>
         <ul>
           {
             blogposts.map((entry, index) => (
-              <li class={index % 2 != 0 ? "bg-gray-300" : ""}>
-                {entry.data.title}
+              <li class={index % 2 != 0 ? "bg-gray-400 dark:bg-gray-600" : ""}>
+                <a href=`blog/{entry.data.slug}` target="_blank">
+                  {entry.data.title}
+              </a>
               </li>
             ))
           }

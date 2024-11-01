@@ -3,14 +3,15 @@ author: Andrew S Erwin
 published: 2024-06-04
 title: "God and Contingency"
 slug: god-and-contingency
-featured: true
+featured: false
 category: Theology
 tags:
   - process theology
   - philosophy
-description:
-  Just some thoughts about contingency and an introduction to process theology
+description: Just some thoughts about contingency and an introduction to process theology
 ---
+
+### Introduction
 
 Classical theism presents the concept of an asymmetric relationship with
 Hashem, illustrating a profound and fundamental distinction between their

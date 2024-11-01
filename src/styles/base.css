@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  a {
+    @apply italic font-bold
+  }
   h1 {
     @apply text-4xl lg:text-2xl;
   }
