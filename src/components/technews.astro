@@ -42,8 +42,10 @@ const articlesToDisplay = articles?.slice(0, articlesCount) ?? [];
     {
       articlesToDisplay.length > 0 ? (
         articlesToDisplay.map((article: Article) => (
-          <li class="pb-4">
-            <a class="hover:text-red-600 dark:hover:text-red-300" href={article.url} target="_blank">{article.title}</a>
+          <li>
+            <a href={article.url} target="_blank">
+              {article.title}
+            </a>
           </li>
         ))
       ) : (

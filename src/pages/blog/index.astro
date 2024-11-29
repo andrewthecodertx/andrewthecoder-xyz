@@ -12,9 +12,13 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
 
 <MainLayout>
   <h2>THE BLOG</h2>
-  <div
-    class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"
-  >
-    {blogposts.map((entry, index) => <BlogCard entry={entry} index={index} />)}
-  </div>
+  <ul>
+    {
+      blogposts.map((entry, index) => (
+        <li>
+          <BlogCard entry={entry} index={index} />
+        </li>
+      ))
+    }
+  </ul>
 </MainLayout>

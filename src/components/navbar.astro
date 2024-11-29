@@ -19,44 +19,16 @@ const MenuItems = [
 ];
 ---
 
-<div class="flex items-center justify-end lg:py-4">
-  <input type="checkbox" name="hamburger" id="hamburger" class="peer" hidden />
-  <label
-    for="hamburger"
-    class="peer-checked:hamburger block relative p-6 cursor-pointer lg:hidden z-[2]"
-  >
-    <div
-      aria-hidden="true"
-      class="m-auto h-0.5 w-6 bg-slate-800 dark:bg-gray-200 transition duration-300"
-    >
-    </div>
-    <div
-      aria-hidden="true"
-      class="m-auto mt-2 h-0.5 w-6 bg-slate-800 dark:bg-gray-200 transition duration-300"
-    >
-    </div>
-  </label>
-  <div
-    class="peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-10rem)] translate-x-[-100%] bg-gray-100 dark:bg-slate-800 lg:bg-transparent dark:lg:bg-transparent border-r shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 z-[1]"
-  >
-    <nav
-      class="flex flex-col h-full justify-between font-sans lg:items-center lg:flex-row"
-    >
-      <ul
-        class="px-4 pt-32 text-slate-800 dark:text-gray-200 space-y-8 lg:space-y-0 lg:flex lg:space-x-12 lg:pt-2"
-      >
-        {
-          MenuItems.map((item) => (
-            <li>
-              <a href={item.path} class="">
-                <span class="relative group-hover:text-cyan-800">
-                  {item.title}
-                </span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </div>
-</div>
+<nav>
+  <ul>
+    {
+      MenuItems.map((item) => (
+        <li>
+          <a href={item.path}>
+            <span>{item.title}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

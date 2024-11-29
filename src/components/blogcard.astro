@@ -9,27 +9,14 @@ interface Props {
 }
 ---
 
-<div class="rounded overflow-hidden shadow-lg">
-  <img
-    class="w-full"
-    src={`/images/${entry.data.image}`}
-    alt={entry.data.title}
-  />
-  <div class="px-6 py-4">
-    <a href={`/blog/${entry.data.slug}`} class="font-bold text-xl mb-2"
-      >{entry.data.title}</a
-    >
-    <p class="text-gray-700 dark:text-gray-400 text-base">
+<div class="blogcard">
+  <div class="blogcard__title">
+    <a href={`/blog/${entry.data.slug}`}>{entry.data.title}</a>
+    <p class="blogcard__description">
       {entry.data.description}
     </p>
   </div>
-  <div class="px-6 pt-4 pb-2">
-    {
-      entry.data.tags.map((tag: string) => (
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          {tag}
-        </span>
-      ))
-    }
+  <div class="blogcard__tags">
+    {entry.data.tags.map((tag: string) => <span>{tag}</span>)}
   </div>
 </div>

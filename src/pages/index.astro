@@ -15,67 +15,55 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 ---
 
 <MainLayout>
-  <div class="lg:flex lg:flex-col">
-    <div class="lg:flex">
-      <div
-        class="relative lg:w-2/3 lg:border-r-2 lg:border-t-2 border-gray-300 mb-5 pr-5"
+  <div id="main">
+    <h2>welcome to my spot</h2>
+    <p>
+      Welcome to my corner of the web! I'm Andrew, a software engineer and web/app
+      developer with 25 years of experience working across a diverse range of
+      languages and platforms. Whether it's building dynamic websites, crafting
+      intuitive mobile apps, or diving deep into systems programming, I enjoy
+      turning ideas into reality through code.
+    </p>
+    <p>
+      But there's more to me than just tech. I'm also a musician, where I
+      channel my creativity into melodies and harmonies. My background in
+      theology has provided me with a unique perspective, blending
+      analytical thinking with a deep appreciation for the human experience.
+      This mix of technology, music, and theology shapes how I approach both
+      life and work, always striving for harmony and purpose in everything I
+      do.
+    </p>
+  </div>
+  <div id="technews">
+    <h3><a href="/tech-news">Tech News</a></h3>
+    <TechNews articles={5} />
+  </div>
+  <div id="dadjoke">
+    <DadJoke />
+    <p>
+      Contribute : <a
+        href="https://dadjokes.developersandbox.xyz"
+        target="_blank">dadjokes.developersandbox.xyz</a
       >
-        <div class="font-bold py-5">
-          <h2 class="pb-5 uppercase">welcome to my spot</h2>
-          Welcome to my corner of the web! I'm Andrew, a software engineer and web/app
-          developer with 25 years of experience working across a diverse range of
-          languages and platforms. Whether it's building dynamic websites, crafting
-          intuitive mobile apps, or diving deep into systems programming, I enjoy
-          turning ideas into reality through code.
-        </div>
-        <div>
-          But there's more to me than just tech. I'm also a musician, where I
-          channel my creativity into melodies and harmonies. My background in
-          theology has provided me with a unique perspective, blending
-          analytical thinking with a deep appreciation for the human experience.
-          This mix of technology, music, and theology shapes how I approach both
-          life and work, always striving for harmony and purpose in everything I
-          do.
-        </div>
-      </div>
-      <div
-        class="relative lg:w-1/3 leading-relaxed pt-5 lg:ml-5 lg:border-t-2 border-gray-300"
-      >
-        <h3 class="underline pb-2"><a href="/tech-news">Tech News</a></h3>
-        <TechNews articles={5} />
-      </div>
-    </div>
-    <div class="clear-both bg-amber-300 p-4 font-bold text-black leading-snug">
-      <DadJoke />
-      <p>
-        Contribute : <a
-          href="https://dadjokes.developersandbox.xyz"
-          target="_blank">dadjokes.developersandbox.xyz</a
-        >
-      </p>
-    </div>
-    <div class="lg:flex w-full">
-      <div class="mr-5 mt-5 lg:w-2/3">
-        <h3 class="underline pb-2">Featured Blogs</h3>
-        <ul>
-          {
-            blogposts.map((entry, index) => (
-              <li class={index % 2 != 0 ? "bg-gray-400 dark:bg-gray-600" : ""}>
-                <a href=`blog/{entry.data.slug}` target="_blank">
-                  {entry.data.title}
-              </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <div
-        class="bg-black mt-3 text-white float=left hover:bg-gray-200 hover:text-black lg:w-1/3"
-      >
-        <span class="block p-4">
-          <p>this is some text that I have put here to use as a place holder</p>
-        </span>
-      </div>
-    </div>
+    </p>
+  </div>
+  <div id="blogs">
+    <h3>Featured Blogs</h3>
+    <ul>
+      {
+        blogposts.map((entry, index) => (
+          <li class={index % 2 != 0 ? "bg-gray-400 dark:bg-gray-600" : ""}>
+            <a href=`blog/{entry.data.slug}` target="_blank">
+              {entry.data.title}
+          </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div id="misc">
+    <span>
+      <p>this is some text that I have put here to use as a place holder</p>
+    </span>
   </div>
 </MainLayout>
