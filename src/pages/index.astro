@@ -35,10 +35,12 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
     </p>
   </div>
   <div id="technews">
-    <h3><a href="/tech-news">Tech News</a></h3>
-    <TechNews articles={5} />
+    <h3>Tech News</h3>
+    <TechNews class="bg-red-50" articles={5} />
+<a href="/technews">See more...</a>
   </div>
   <div id="dadjoke">
+    <h3>Dad Joke</h3>
     <DadJoke />
     <p>
       Contribute : <a
@@ -53,9 +55,9 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
       {
         blogposts.map((entry, index) => (
           <li class={index % 2 != 0 ? "bg-gray-400 dark:bg-gray-600" : ""}>
-            <a href=`blog/{entry.data.slug}` target="_blank">
+            <a href=`blog/${entry.data.slug}`>
               {entry.data.title}
-          </a>
+            </a>
           </li>
         ))
       }

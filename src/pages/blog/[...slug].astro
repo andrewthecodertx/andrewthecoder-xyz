@@ -1,14 +1,14 @@
 ---
-import MainLayout from "../../layouts/main.astro"
-import { getEntry } from "astro:content"
+import MainLayout from "../../layouts/main.astro";
+import { getEntry } from "astro:content";
 
-const { slug } = Astro.params
-const entry = await getEntry('blog', slug)
-const { Content } = await entry.render()
+const { slug } = Astro.params;
+const entry = await getEntry("blog", slug);
+const { Content } = await entry.render();
 ---
 
 <MainLayout>
-  <a class="block py-4" href="/blog">&lt;- back to all blogs</a>
-  <h2 class="pb-4">{entry.data.title}</h2>
+  <a href="/blog">&lt;- back to all blogs</a>
+  <h2>{entry.data.title}</h2>
   <Content />
 </MainLayout>

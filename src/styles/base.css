@@ -5,6 +5,7 @@
 @layer base {
   * {
     @apply m-0 p-0;
+    box-sizing: border-box;
   }
 
   h1 {
@@ -27,12 +28,20 @@
   pre {
   }
 
-  .hamburger:checked + label div:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px);
+  .toggle:checked + label div:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 7px);
   }
 
-  .hamburger:checked + label div:nth-child(2) {
+  .toggle:checked + label div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .toggle:checked + label div:nth-child(3) {
     transform: rotate(-45deg) translate(4px, -4px);
+  }
+
+  .toggle:checked ~ nav {
+    @apply translate-x-0; 
   }
 }
 

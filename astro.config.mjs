@@ -1,14 +1,16 @@
 import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
-
 import tailwind from "@astrojs/tailwind";
+import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   adapter: node({
-    mode: "standalone",
+    mode: "standalone"
   }),
-  integrations: [tailwind()],
-  server: { port: 4000 },
+  integrations: [tailwind(), alpinejs()],
+  server: {
+    port: 4000
+  }
 });
