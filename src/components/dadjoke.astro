@@ -9,6 +9,7 @@ try {
   const response = await axios.get(
     "https://dadjokes.developersandbox.xyz/api/v1/random",
   );
+
   joke = response.data;
 } catch (error) {
   return null;
@@ -16,8 +17,5 @@ try {
 ---
 
 <section class={className} {...rest}>
-  <h3>Dad Joke</h3>
-  <ul>
-    {joke ? <li>{joke.joke_text}</li> : <li>ERROR FETCHING DAD JOKE!</li>}
-  </ul>
+  {joke ? <p>{joke.joke_text}</p> : <h4>ERROR FETCHING DAD JOKE!</h4>}
 </section>

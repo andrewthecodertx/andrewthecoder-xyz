@@ -1,0 +1,62 @@
+---
+import ThemeIcon from "./themeicon.astro";
+
+const MenuItems = [
+  {
+    title: "HOME",
+    path: "/",
+  },
+  {
+    title: "ABOUT",
+    path: "/about",
+  },
+  {
+    title: "BLOG",
+    path: "/blog",
+  },
+  {
+    title: "CONTACT",
+    path: "/contact",
+  },
+];
+---
+
+<header
+  class="border shadow px-4 flex items-center justify-between fixed
+  top-0 left-0 right-0 bg-gray-100 dark:bg-gray-700"
+>
+  <div id="title" class="border-r border-gray-300 font-bold flex">
+    <ThemeIcon />
+    <a href="/" class="text-gray-700 dark:text-gray-200 block py-2 px-3"
+      >ANDERW <span class="text-gray-400">the</span> CODER</a
+    >
+  </div>
+
+  <nav>
+    <ul
+      class="flex flex-col lg:flex-row items-center absolute lg:relative
+      top-11 lg:top-0 translate-x-full lg:translate-x-0 w-full h-screen lg:h-auto text-gray-700
+      dark:text-gray-200 bg-gray-100 dark:bg-gray-700 transition-transform
+      duration-500 ease-in-out"
+    >
+      {
+        MenuItems.map((item) => (
+          <li class="py-8 lg:py-0 lg:pl-8">
+            <a href={item.path}>
+              <span>{item.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <input id="toggle" type="checkbox" class="hidden toggle" />
+    <label
+      for="toggle"
+      class="cursor-pointer flex flex-col justify-between w-5 h-4 lg:hidden"
+    >
+      <div></div>
+      <div></div>
+      <div></div>
+    </label>
+  </nav>
+</header>

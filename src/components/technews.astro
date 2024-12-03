@@ -38,19 +38,19 @@ const articlesToDisplay = articles?.slice(0, articlesCount) ?? [];
 ---
 
 <section class={className} {...rest}>
-  <ul>
-    {
-      articlesToDisplay.length > 0 ? (
-        articlesToDisplay.map((article: Article) => (
-          <li>
-            <a href={article.url} target="_blank">
-              {article.title}
-            </a>
-          </li>
-        ))
-      ) : (
-        <li>ERROR FETCHING TECH NEWS!</li>
-      )
-    }
-  </ul>
+  {
+    articlesToDisplay.length > 0 ? (
+      <ul>
+      {articlesToDisplay.map((article: Article) => (
+        <li>
+          <a href={article.url} target="_blank">
+            {article.title}
+          </a>
+        </li>
+      ))}
+      </ul>
+    ) : (
+      <h4>ERROR FETCHING TECH NEWS!</h4>
+    )
+  }
 </section>

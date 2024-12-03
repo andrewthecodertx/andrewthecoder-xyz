@@ -1,11 +1,70 @@
 ---
 import ThemeIcon from "./themeicon.astro";
-import NavBar from "./navbar.astro";
+
+const MenuItems = [
+  {
+    title: "HOME",
+    path: "/",
+  },
+  {
+    title: "ABOUT",
+    path: "/about",
+  },
+  {
+    title: "BLOG",
+    path: "/blog",
+  },
+  {
+    title: "CONTACT",
+    path: "/contact",
+  },
+];
 ---
 
-<header>
-  <div id="title">
-    <p>ANDERW <span>the</span> CODER</p>
+<header
+  class="fixed top-0 left-0 right-0 flex justify-between
+  items-center px-4 bg-gray-200 dark:bg-gray-700"
+>
+  <div class="flex">
+    <ThemeIcon />
+    <h1 class="py-2 px-4">
+      <a href="/" class="text-gray-700 dark:text-gray-200"
+        >ANDERW <span class="text-gray-400">the</span> CODER</a
+      >
+    </h1>
   </div>
-  <NavBar />
+  <input
+    type="checkbox"
+    id="menuToggle"
+    name="menuToggle"
+    class="hidden toggle"
+  />
+  <label for="menuToggle" class="flex flex-col cursor-pointer lg:hidden">
+    <div
+      class="bg-gray-700 dark:bg-gray-200 mb-1 h-1 w-5 transition-transform duration-600"
+    >
+    </div>
+    <div
+      class="bg-gray-700 dark:bg-gray-200 mb-1 h-1 w-5 transition-transform duration-600"
+    >
+    </div>
+    <div
+      class="bg-gray-700 dark:bg-gray-200 h-1 w-5 transition-transform duration-600"
+    >
+    </div>
+  </label>
+  <nav
+    class="pt-8 lg:pt-0 absolute lg:relative h-screen lg:h-full w-6/12 lg:w-fit
+    right-0 top-10 lg:top-0 lg:left-0 flex flex-col lg:flex-row items-center
+    space-y-8 lg:space-y-0 lg:space-x-4 bg-gray-200 dark:bg-gray-700
+    translate-x-full lg:translate-x-0 transition-transform duration-500"
+  >
+    {
+      MenuItems.map((item) => (
+        <a href={item.path} class="text-gray-700 dark:text-gray-200">
+          {item.title}
+        </a>
+      ))
+    }
+  </nav>
 </header>
