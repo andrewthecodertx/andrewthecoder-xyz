@@ -41,13 +41,17 @@ const articlesToDisplay = articles?.slice(0, articlesCount) ?? [];
   {
     articlesToDisplay.length > 0 ? (
       <ul>
-      {articlesToDisplay.map((article: Article) => (
-        <li>
-          <a href={article.url} target="_blank">
-            {article.title}
-          </a>
-        </li>
-      ))}
+        {articlesToDisplay.map((article: Article) => (
+          <li class="pb-4">
+            <a
+              href={article.url}
+              target="_blank"
+              class="hover:text-amber-600 dark:hover:text-amber-500"
+            >
+              {article.title}
+            </a>
+          </li>
+        ))}
       </ul>
     ) : (
       <h4>ERROR FETCHING TECH NEWS!</h4>

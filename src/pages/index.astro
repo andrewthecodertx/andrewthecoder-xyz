@@ -15,46 +15,49 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 ---
 
 <MainLayout>
-  <div id="main">
-    <h2>welcome to my spot</h2>
-    <p>
-      Welcome to my corner of the web! I'm Andrew, a software engineer and web/app
-      developer with 25 years of experience working across a diverse range of
-      languages and platforms. Whether it's building dynamic websites, crafting
-      intuitive mobile apps, or diving deep into systems programming, I enjoy
-      turning ideas into reality through code.
-    </p>
-    <p>
-      But there's more to me than just tech. I'm also a musician, where I
-      channel my creativity into melodies and harmonies. My background in
-      theology has provided me with a unique perspective, blending
-      analytical thinking with a deep appreciation for the human experience.
-      This mix of technology, music, and theology shapes how I approach both
-      life and work, always striving for harmony and purpose in everything I
-      do.
-    </p>
+  <h2 class="text-2xl font-bold uppercase pb-2">welcome to my spot</h2>
+  <div class="flex mb-4">
+    <div id="main" class="pt-2 pr-2 border-r-2 border-t-2 border-gray-300 leading-6">
+      <p class="mb-4 font-bold">
+        Welcome to my corner of the web! I'm Andrew, a software engineer and web/app
+        developer with 25 years of experience working across a diverse range of
+        languages and platforms. Whether it's building dynamic websites, crafting
+        intuitive mobile apps, or diving deep into systems programming, I enjoy
+        turning ideas into reality through code.
+      </p>
+      <p>
+        But there's more to me than just tech. I'm also a musician, where I
+        channel my creativity into melodies and harmonies. My background in
+        theology has provided me with a unique perspective, blending
+        analytical thinking with a deep appreciation for the human experience.
+        This mix of technology, music, and theology shapes how I approach both
+        life and work, always striving for harmony and purpose in everything I
+        do.
+      </p>
+    </div>
+    <div id="technews" class="ml-4 pt-2 leading-relaxed border-t-2 border-gray-300 text-xs">
+      <h3 class="font-bold text-lg pb-2">Tech News</h3>
+      <TechNews articles={3} />
+      <a href="/technews" class="underline hover:text-red-500">See more...</a>
+    </div>
   </div>
-  <div id="technews">
-    <h3>Tech News</h3>
-    <TechNews articles={5} />
-    <a href="/technews">See more...</a>
-  </div>
-  <div id="dadjoke">
-    <h3>Dad Joke</h3>
-    <DadJoke />
+  <div id="dadjoke" class="bg-amber-100 w-full p-4 text-gray-700">
+    <h3 class="font-bold text-lg pb-2">Dad Joke</h3>
+    <DadJoke class="pb-2" />
     <p>
-      Contribute : <a
+      Contribute a joke here : <a
         href="https://dadjokes.developersandbox.xyz"
-        target="_blank">dadjokes.developersandbox.xyz</a
+        target="_blank" class="underline">dadjokes.developersandbox.xyz</a
       >
     </p>
   </div>
-  <div id="blogs">
-    <h3>Featured Blogs</h3>
+  <div class="flex">
+  <div id="blogs" class="mr-16 mt-4 w-3/4">
+    <h3 class="border-b-2 border-gray-300 font-bold text-lg">Featured Blogs</h3>
     <ul>
       {
         blogposts.map((entry, index) => (
-          <li class={index % 2 != 0 ? "bg-gray-400 dark:bg-gray-600" : ""}>
+          <li class={index % 2 != 0 ? "bg-gray-200 dark:bg-gray-700" : ""}>
             <a href=`blog/${entry.data.slug}`>
               {entry.data.title}
             </a>
@@ -63,9 +66,10 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
       }
     </ul>
   </div>
-  <div id="misc">
+  <div id="misc" class="bg-gray-700 text-gray-300 p-4 mt-4">
     <span>
       <p>this is some text that I have put here to use as a place holder</p>
     </span>
+    </div>
   </div>
 </MainLayout>
