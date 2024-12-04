@@ -16,8 +16,8 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 
 <MainLayout>
   <h2 class="text-2xl font-bold uppercase pb-2">welcome to my spot</h2>
-  <div class="flex mb-4">
-    <div id="main" class="pt-2 pr-2 border-r-2 border-t-2 border-gray-300 leading-6">
+  <div class="flex flex-col md:flex-row mb-4">
+    <div id="main" class="pt-2 pr-2 md:border-r-2 md:border-t-2 border-gray-300 leading-6">
       <p class="mb-4 font-bold">
         Welcome to my corner of the web! I'm Andrew, a software engineer and web/app
         developer with 25 years of experience working across a diverse range of
@@ -35,7 +35,7 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
         do.
       </p>
     </div>
-    <div id="technews" class="ml-4 pt-2 leading-relaxed border-t-2 border-gray-300 text-xs">
+    <div id="technews" class="md:ml-4 pt-2 leading-relaxed md:border-t-2 border-gray-300 text-xs">
       <h3 class="font-bold text-lg pb-2">Tech News</h3>
       <TechNews articles={3} />
       <a href="/technews" class="underline hover:text-red-500">See more...</a>
@@ -51,7 +51,7 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
       >
     </p>
   </div>
-  <div class="flex">
+  <div class="flex flex-col md:flex-row">
   <div id="blogs" class="mr-16 mt-4 w-3/4">
     <h3 class="border-b-2 border-gray-300 font-bold text-lg">Featured Blogs</h3>
     <ul>
