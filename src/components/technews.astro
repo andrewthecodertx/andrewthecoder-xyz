@@ -42,7 +42,7 @@ const articlesToDisplay = articles?.slice(0, articlesCount) ?? [];
     articlesToDisplay.length > 0 ? (
       <ul>
         {articlesToDisplay.map((article: Article) => (
-          <li class="pb-4">
+          <li class="pb-2 md:pb-4">
             <a
               href={article.url}
               target="_blank"
