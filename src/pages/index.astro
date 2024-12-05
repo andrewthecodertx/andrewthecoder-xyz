@@ -16,6 +16,10 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 
 <MainLayout>
   <h2>welcome to my spot</h2>
+  <nav class="inline-block leading-loose text-xs">
+    <a href="#" class="px-6 text-gray-400 hover:text-red-600 hover:underline">tech news</a>
+    <a href="#" class="text-gray-400 hover:text-red-600 hover:underline">contribute a dad joke</a>
+  </nav>
   <div class="flex flex-col md:flex-row mb-4">
     <div id="main" class="pt-2 pr-2 mb-2 md:border-r-2 md:border-t-2 border-gray-300 leading-6">
       <p class="mb-4 font-bold">
