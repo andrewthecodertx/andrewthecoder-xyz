@@ -21,7 +21,7 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
     <a href="#" class="text-gray-400 hover:text-red-600 hover:underline">contribute a dad joke</a>
   </nav>
   <div class="flex flex-col md:flex-row mb-4">
-    <div id="main" class="pt-2 pr-2 mb-2 md:border-r-2 md:border-t-2 border-gray-300 leading-6">
+    <div id="main" class="pt-4 pr-4 mb-2 md:border-r-2 md:border-t-2 border-gray-300 leading-6">
       <p class="mb-4 font-bold">
         Welcome to my corner of the web! I'm Andrew, a software engineer and web/app
         developer with 25 years of experience working across a diverse range of
@@ -29,7 +29,7 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
         intuitive mobile apps, or diving deep into systems programming, I enjoy
         turning ideas into reality through code.
       </p>
-      <p>
+      <p class="mb-4">
         But there's more to me than just tech. I'm also a musician, where I
         channel my creativity into melodies and harmonies. My background in
         theology has provided me with a unique perspective, blending
@@ -37,6 +37,11 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
         This mix of technology, music, and theology shapes how I approach both
         life and work, always striving for harmony and purpose in everything I
         do.
+      </p>
+      <p>
+        And, just in case you couldn't tell, most of the above was generated
+        by AI! It isn't untrue, but it isn't the whole truth either. Talking
+        about myself is something I have never been very good at...
       </p>
     </div>
     <div id="technews" class="md:ml-4 pt-2 leading-relaxed md:border-t-2 border-gray-300 md:text-xs">
@@ -61,7 +66,7 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
     <ul>
       {
         blogposts.map((entry, index) => (
-          <li class={index % 2 != 0 ? "bg-gray-200 dark:bg-gray-700" : ""}>
+          <li class=`py-2 ${index % 2 != 0 ? "bg-gray-200 dark:bg-gray-700" : ""}`>
             <a href=`blog/${entry.data.slug}`>
               {entry.data.title}
             </a>
