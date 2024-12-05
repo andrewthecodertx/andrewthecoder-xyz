@@ -9,9 +9,14 @@ interface Props {
 }
 ---
 
-<div class="blogcard">
+<div class="border border-gray-300 m-2 p-4 rounded-md">
   <div class="blogcard__title">
-    <a href={`/blog/${entry.data.slug}`}>{entry.data.title}</a>
+    <img
+      src=`/images/${entry.data.image}`
+      alt={entry.data.title}
+      class="rounded-md w-full h-64 object-cover"
+    />
+    <h3><a href=`/blog/${entry.data.slug}`>{entry.data.title}</a></h3>
     <p class="blogcard__description">
       {entry.data.description}
     </p>

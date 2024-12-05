@@ -9,6 +9,7 @@ tags:
   - process theology
   - philosophy
 description: Just some thoughts about contingency and an introduction to process theology
+image: processtheology.jpg
 ---
 
 ### Introduction

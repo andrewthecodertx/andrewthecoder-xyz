@@ -9,6 +9,7 @@ tags:
   - personal
   - poetry
 description: an attempt at poetry
+image: sadness.jpg
 ---
 
 In shadows cast, where whispers dwell,

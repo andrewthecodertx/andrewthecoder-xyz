@@ -1,40 +1,32 @@
 ---
 import axios from "axios";
-import NodeCache from "node-cache";
 import type { Article } from "../Types.ts";
+import localnews from "../../data/technews.json";
 
 const { class: className, articles: articlesCount = 3, ...rest } = Astro.props;
-
-const cache = new NodeCache({ stdTTL: 43200 }); // 12 hours
 const apikey = import.meta.env.NEWSAPI_KEY;
-
-let articles: Article[] | null = null;
+const environment = import.meta.env.MODE;
 
 const fetch_articles = async (): Promise<Article[] | null> => {
-  const key = "tech-news";
-
-  let cached_articles: Article[] | undefined = cache.get(key);
-  if (cached_articles) {
-    return cached_articles;
-  }
-
   try {
+    if(environment === "development") {
+      return localnews.articles as Article[]; 
+    }
+
     const response = await axios.get(
       `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apikey}`,
     );
 
-    let articles = response.data.articles;
-    cache.set(key, articles);
-
-    return articles;
+    return response.data.articles as Article[];
   } catch (error) {
-    return null;
+    throw new Error(error);
+    return [];
   }
 };
 
-articles = await fetch_articles();
+let articles: Article[] = await fetch_articles();
 
-const articlesToDisplay = articles?.slice(0, articlesCount) ?? [];
+const articlesToDisplay = articles.slice(0, articlesCount);
 ---
 
 <section class={className} {...rest}>

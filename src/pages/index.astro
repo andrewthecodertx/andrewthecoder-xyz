@@ -15,9 +15,9 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 ---
 
 <MainLayout>
-  <h2 class="text-2xl font-bold uppercase pb-2">welcome to my spot</h2>
+  <h2>welcome to my spot</h2>
   <div class="flex flex-col md:flex-row mb-4">
-    <div id="main" class="pt-2 pr-2 md:border-r-2 md:border-t-2 border-gray-300 leading-6">
+    <div id="main" class="pt-2 pr-2 mb-2 md:border-r-2 md:border-t-2 border-gray-300 leading-6">
       <p class="mb-4 font-bold">
         Welcome to my corner of the web! I'm Andrew, a software engineer and web/app
         developer with 25 years of experience working across a diverse range of
@@ -36,13 +36,13 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
       </p>
     </div>
     <div id="technews" class="md:ml-4 pt-2 leading-relaxed md:border-t-2 border-gray-300 md:text-xs">
-      <h3 class="font-bold text-lg pb-2">Tech News</h3>
+      <h3>Tech News</h3>
       <TechNews articles={3} />
       <a href="/technews" class="underline hover:text-red-500">See more...</a>
     </div>
   </div>
   <div id="dadjoke" class="bg-amber-100 w-full p-4 text-gray-700">
-    <h3 class="font-bold text-lg pb-2">Dad Joke</h3>
+    <h3>Dad Joke</h3>
     <DadJoke class="pb-2" />
     <p>
       Contribute a joke here : <a
@@ -53,7 +53,7 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
   </div>
   <div class="flex flex-col md:flex-row">
   <div id="blogs" class="md:mr-16 mt-4 md:w-3/4">
-    <h3 class="border-b-2 border-gray-300 font-bold text-lg">Featured Blogs</h3>
+    <h3 class="border-b-2">Featured Blogs</h3>
     <ul>
       {
         blogposts.map((entry, index) => (

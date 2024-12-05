@@ -1,18 +1,23 @@
 ---
 import axios from "axios";
+import localdadjoke from "../../data/dadjoke.json";
 
 const { class: className, ...rest } = Astro.props;
+const environment = import.meta.env.MODE;
 
 let joke = null;
 
 try {
-  const response = await axios.get(
-    "https://dadjokes.developersandbox.xyz/api/v1/random",
-  );
-
-  joke = response.data;
+  if (environment === "development") {
+    joke = localdadjoke;
+  } else {
+    const response = await axios.get(
+      "https://dadjokes.developersandbox.xyz/api/v1/random",
+    );
+    joke = response.data;
+  }
 } catch (error) {
-  return null;
+  joke = null;
 }
 ---
 

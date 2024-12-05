@@ -9,9 +9,11 @@
   }
 
   h2 {
+    @apply text-2xl font-bold uppercase pb-2;
   }
 
   h3 {
+    @apply font-bold text-lg pb-2;
   }
 
   a {
