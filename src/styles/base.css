@@ -24,7 +24,7 @@
   }
 
   p {
-    @apply py-4;
+    @apply my-4;
   }
 
   pre {

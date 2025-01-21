@@ -8,6 +8,7 @@ import type { CollectionEntry } from "astro:content";
 
 import Image from "astro/components/Image.astro";
 import andrew from "../assets/andrewface.png"
+import x from "../assets/x.svg";
 
 const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 .sort(
@@ -47,28 +48,14 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
   </section>
   <section id="mainsection" class="pt-2 flex flex-col md:flex-row">
     <div>
+      <p>I'm Andrew. I am a full stack software developer. I love to solve problems.</p>
       <p>
-        Welcome to my corner of the web! I'm Andrew, a software engineer
-        and web/app developer with 25 years of experience working across a
-        diverse range of languages and platforms. Whether it's building
-        dynamic websites, crafting intuitive mobile apps, or diving deep
-        into systems programming, enjoy turning ideas into reality through
-        code.
+        I have been in the industry for more than 20 years. Most of my work has been web based,
+        but lately I am concentrating on machine learning, neural networks, and artificial intelligence.
       </p>
-      <p>
-        But there's more to me than just tech. I'm also a musician, where I
-        channel my creativity into melodies and harmonies. My background in
-        theology has provided me with a unique perspective, blending analytical
-        thinking with a deep appreciation for the human experience. This mix of
-        technology, music, and theology shapes how I approach both life and
-        work, always striving for harmony and purpose in everything I do.
-      </p>
-      <p>
-        And, just in case you couldn't tell, most of the above was generated
-        by AI! It isn't untrue, but it isn't the whole truth either. Talking
-        about myself is something I have never been very good at...
-        </p>
-    </div>
+      <h3>some ways to connect with me!</h3>
+      <Image src={x} alt="X" class="w-8 h-8" />
+     </div>
     <aside class="p-4 my-4 md:my-0 md:text-xs md:ml-6 text-white
       bg-[url('../assets/gradientbg.jpg')] bg-cover rounded-xl">
       <div id="technews">
