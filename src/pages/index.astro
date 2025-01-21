@@ -9,6 +9,8 @@ import type { CollectionEntry } from "astro:content";
 import Image from "astro/components/Image.astro";
 import andrew from "../assets/andrewface.png"
 import x from "../assets/x.svg";
+import github from "../assets/github-mark.svg";
+import github_white from "../assets/github-mark-white.svg";
 
 const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 .sort(
@@ -54,7 +56,12 @@ const blogposts: CollectionEntry<"blog">[] = (await getCollection("blog"))
         but lately I am concentrating on machine learning, neural networks, and artificial intelligence.
       </p>
       <h3>some ways to connect with me!</h3>
-      <Image src={x} alt="X" class="w-8 h-8" />
+      <a href="https://x.com/andrewerwin73" target="_blank">
+        <Image src={x} alt="X" class="w-10 h-10" />
+      </a>
+      <a href="https://github.com/andrewthecodertx" target="_blank">
+        <Image src={github_white} alt="GitHub" class="w-8 h-8 stroke-white" />
+      </a>
      </div>
     <aside class="p-4 my-4 md:my-0 md:text-xs md:ml-6 text-white
       bg-[url('../assets/gradientbg.jpg')] bg-cover rounded-xl">
