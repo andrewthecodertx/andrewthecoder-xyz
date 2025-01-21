@@ -24,10 +24,11 @@
   }
 
   p {
-    @apply py-2;
+    @apply py-4;
   }
 
   pre {
+    @apply p-4 ;
   }
 
   .toggle:checked + label div:nth-child(1) {
