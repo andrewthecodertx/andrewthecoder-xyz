@@ -1,11 +1,13 @@
 ---
-import MainLayout from "../layouts/main.astro";
+import Layout from "../layouts/main.astro";
 import TechNews from "../components/technews.astro";
+
+const { class: className, ...rest } = Astro.props;
 ---
 
-<MainLayout>
-  <section>
+<Layout>
+  <section class={className} {...rest}>
     <h2><a href="/tech-news">Tech News</a></h2>
     <TechNews articles={10} />
   </section>
-</MainLayout>
+</Layout>

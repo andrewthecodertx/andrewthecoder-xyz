@@ -9,27 +9,29 @@
   }
 
   h2 {
-    @apply text-2xl font-bold uppercase pb-2;
+    @apply text-3xl p-0 m-0;
   }
 
   h3 {
-    @apply font-bold text-lg pb-2;
+    @apply text-2xl pb-2;
   }
 
   a {
-  }
+  @apply hover:text-amber-600 dark:hover:text-amber-500;
+}
 
   main {
   }
 
   p {
+    @apply pt-4;
   }
 
   pre {
   }
 
   .toggle:checked + label div:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 7px);
+    transform: rotate(45deg) translate(4px, 2px);
   }
 
   .toggle:checked + label div:nth-child(2) {
@@ -37,7 +39,7 @@
   }
 
   .toggle:checked + label div:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -4px);
+    transform: rotate(-45deg) translate(4px, -2px);
   }
 
   .toggle:checked ~ #mainnav {

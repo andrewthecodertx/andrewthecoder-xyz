@@ -7,10 +7,10 @@ const { class: className, articles: articlesCount = 3, ...rest } = Astro.props;
 const apikey = import.meta.env.NEWSAPI_KEY;
 const environment = import.meta.env.MODE;
 
-const fetch_articles = async (): Promise<Article[] | null> => {
+const fetch_articles = async (): Promise<Article[]> => {
   try {
-    if(environment === "development") {
-      return localnews.articles as Article[]; 
+    if (environment === "development") {
+      return localnews.articles as Article[];
     }
 
     const response = await axios.get(
@@ -18,9 +18,8 @@ const fetch_articles = async (): Promise<Article[] | null> => {
     );
 
     return response.data.articles as Article[];
-  } catch (error) {
-    throw new Error(error);
-    return [];
+  } catch (error: any) {
+    throw new Error(error.message);
   }
 };
 
@@ -35,11 +34,7 @@ const articlesToDisplay = articles.slice(0, articlesCount);
       <ul>
         {articlesToDisplay.map((article: Article) => (
           <li class="pb-2 md:pb-4">
-            <a
-              href={article.url}
-              target="_blank"
-              class="hover:text-amber-600 dark:hover:text-amber-500"
-            >
+            <a href={article.url} target="_blank">
               {article.title}
             </a>
           </li>

@@ -22,50 +22,65 @@ const MenuItems = [
 ---
 
 <header
-  class="fixed top-0 left-0 right-0 flex justify-between
-  items-center px-4 bg-gray-200 dark:bg-gray-700"
+  class="bg-gray-100 dark:bg-[#060b0f] fixed top-0 left-0 right-0 flex
+  justify-between items-center px-4 py-2 border-b shadow"
 >
-  <div class="flex">
-    <ThemeIcon />
-    <h1 class="py-2 px-4">
-      <a href="/" class="text-gray-700 dark:text-gray-200"
-        >ANDERW <span class="text-gray-400">the</span> CODER</a
+  <h1>
+    <div class="flex">
+      <div
+        class="my-2 h-8 w-8 bg-[url('../assets/logo440x440black.png')]
+      dark:bg-[url('../assets/logo440x440white.png')] bg-cover"
       >
-    </h1>
+      </div>
+      <div class="px-2 pt-3">
+        <a
+          href="/"
+          class="text-gray-900 dark:text-white hover:text-gray-900
+          dark:hover:text-white"
+          >ANDERW<span class="text-gray-500">the</span>CODER</a
+        >
+      </div>
+    </div>
+  </h1>
+  <div class="flex">
+    <input
+      type="checkbox"
+      id="menuToggle"
+      name="menuToggle"
+      class="hidden toggle"
+    />
+    <label for="menuToggle" class="flex flex-col pt-1 cursor-pointer md:hidden">
+      <div
+        class="bg-[#060b0f] dark:bg-gray-100 mb-[2px] h-[2px] w-4
+        transition-transform duration-600"
+      >
+      </div>
+      <div
+        class="bg-[#060b0f] dark:bg-gray-100 mb-[2px] h-[2px] w-4
+        transition-transform duration-600"
+      >
+      </div>
+      <div
+        class="bg-[#060b0f] dark:bg-gray-100 h-[2px] w-4
+        transition-transform duration-600"
+      >
+      </div>
+    </label>
+    <nav
+      class="bg-gray-100 dark:bg-[#060b0f] pt-8 md:pt-0 absolute md:relative h-screen
+      md:h-full w-6/12 md:w-fit right-0 top-10 md:top-0 md:left-0 flex flex-col
+      md:flex-row items-center space-y-8 md:space-y-0 md:space-x-4
+      translate-x-full md:translate-x-0 transition-transform duration-500 z-10"
+      id="mainnav"
+    >
+      {
+        MenuItems.map((item) => (
+          <a href={item.path} class="text-gray-900 dark:text-white">
+            {item.title}
+          </a>
+        ))
+      }
+    </nav>
+    <ThemeIcon class="pl-4" />
   </div>
-  <input
-    type="checkbox"
-    id="menuToggle"
-    name="menuToggle"
-    class="hidden toggle"
-  />
-  <label for="menuToggle" class="flex flex-col cursor-pointer md:hidden">
-    <div
-      class="bg-gray-700 dark:bg-gray-200 mb-1 h-1 w-5 transition-transform duration-600"
-    >
-    </div>
-    <div
-      class="bg-gray-700 dark:bg-gray-200 mb-1 h-1 w-5 transition-transform duration-600"
-    >
-    </div>
-    <div
-      class="bg-gray-700 dark:bg-gray-200 h-1 w-5 transition-transform duration-600"
-    >
-    </div>
-  </label>
-  <nav
-    class="pt-8 md:pt-0 absolute md:relative h-screen md:h-full w-6/12 md:w-fit
-    right-0 top-10 md:top-0 md:left-0 flex flex-col md:flex-row items-center
-    space-y-8 md:space-y-0 md:space-x-4 bg-gray-200 dark:bg-gray-700
-    translate-x-full md:translate-x-0 transition-transform duration-500"
-    id="mainnav"
-  >
-    {
-      MenuItems.map((item) => (
-        <a href={item.path} class="text-gray-700 dark:text-gray-200">
-          {item.title}
-        </a>
-      ))
-    }
-  </nav>
 </header>
